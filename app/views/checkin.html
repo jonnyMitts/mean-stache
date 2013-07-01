@@ -1,0 +1,8 @@
+<div class="hero-unit">
+  <p>Please Choose which appointment you are checking in for : </p>
+  <ul class="unstyled">
+      <li ng-repeat="appointment in appointments">
+      	<p><a class="btn btn-large btn-primary btn-block appointment" ng-click="checkedin(this)" data-time="{{appointment.time}}">{{appointment.practice}} - {{appointment.name}} - {{appointment.time}}</a></p>
+      </li>
+  </ul>	
+</div>

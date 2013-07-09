@@ -2,7 +2,7 @@
   <p>Please Choose which appointment you are checking in for : </p>
   <ul class="unstyled">
       <li ng-repeat="appointment in appointments">
-      	<p><a class="btn btn-large btn-primary btn-block appointment" ng-click="checkedin(this)" data-time="{{appointment.time}}">{{appointment.practice}} - {{appointment.name}} - {{appointment.time}}</a></p>
+      	<p><a ng-class="{true:'disabled'}[appointment.checkedIn]" class="btn btn-large btn-primary btn-block appointment" ng-click="checkin(this)" data-time="{{appointment.time}}">{{appointment.officeName}} - {{appointment.appt}}</a></p>
       </li>
   </ul>	
 </div>

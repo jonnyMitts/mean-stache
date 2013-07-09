@@ -52,23 +52,22 @@
     <div id="appointment-modal" ng-controller="MdlAppointment" class="modal hide fade">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h3>{{title}}</h3>
+        <h3>{{title}} - {{office.practice}}</h3>
       </div>
       <div class="modal-body">
         <form>
-        <p>You have chosen to apply for {{msg.time}}:</p>
-            <textarea placeholder="Please enter your symptoms"></textarea>
+        <p>You have chosen to apply for : {{time}}</p>
+            <textarea ng-model="report.symptoms" placeholder="Please enter your symptoms"></textarea>
             <p>Please select your form(s) of communication.</p>
             <ul class="unstyled">
-                <li><label class="checkbox"><input type="checkbox">Email</label></li>
-                <li><label class="checkbox"><input type="checkbox">Text</label></li>
-                <li><label class="checkbox"><input type="checkbox">Telephone</label></li>
+                <li><label class="checkbox"><input ng-model="report.comm.email" type="checkbox">Email</label></li>
+                <li><label class="checkbox"><input ng-model="report.comm.text" type="checkbox">Text</label></li>
             </ul>
         </form>
       </div>
       <div class="modal-footer">
-        <a href="#" class="btn">Cancel</a>
-        <a href="#" class="btn btn-primary">Send Application</a>
+        <a class="btn">Cancel</a>
+        <a class="btn btn-primary" ng-click="submitAppointment(report)">Send Application</a>
       </div>
     </div>
 

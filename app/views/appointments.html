@@ -1,8 +1,9 @@
 <div class="hero-unit">
+	<h2>{{office.practice}} - {{office.name}}</h2>
   <p>Please Choose an appointment for : {{currentDate.getMonth() + 1}}/{{currentDate.getDate()}}/{{currentDate.getFullYear()}} </p>
   <ul class="unstyled">
-      <li ng-repeat="appointment in appointments">
-      	<p><a class="btn btn-large btn-primary btn-block appointment"  ng-click="applyForAppointment(this)" data-time="{{appointment.time}}">{{appointment.time}}</a></p>
+      <li ng-repeat="appointment in office.availableTimes">
+      	<p><a class="btn btn-large btn-primary btn-block appointment "  ng-click="applyForAppointment(this)" data-time="{{appointment}}">{{appointment}}</a></p>
       </li>
   </ul>	
 </div>

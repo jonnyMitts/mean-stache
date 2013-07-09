@@ -3,7 +3,11 @@
 angular.module('bbContestApp', [])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+     .when('/', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/Main', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
@@ -15,6 +19,10 @@ angular.module('bbContestApp', [])
         templateUrl:'views/appointments.html',
         controller:'AppointmentsCtrl'
       })
+      // .when("/YourAppointments/:id",{
+      //   templateUrl:'views/yourAppointments.html',
+      //   controller:'YourAppointmentsCtrl'
+      // })
       .when("/Records",{
         templateUrl:'views/records.html',
         controller:'RecordsCtrl'
@@ -23,11 +31,16 @@ angular.module('bbContestApp', [])
         templateUrl:'views/record.html',
         controller:'RecordCtrl'
       })
-      .when("/Checkin",{
+      .when("/Checkin/:id",{
         templateUrl:'views/checkin.html',
         controller:'CheckInCtrl'
       })
-      .otherwise({
-        redirectTo: '/'
-      });
+      //FrontDesk
+      .when("/Admin/Checkins/:id",{
+        templateUrl:"views/admin.checkins.html",
+        controller:'Admin_CheckinsCtrl'
+      })
+      // .otherwise({
+      //   redirectTo: '/'
+      // });
   });

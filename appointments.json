@@ -1,0 +1,67 @@
+/* 0 */
+{
+    "officeId" : 31,
+    "officeName" : "Dr. Wallace",
+    "appt" : "10:30AM",
+    "userId" : "12434mjhicdfi4k34u39iu",
+    "userName" : "JMIT",
+    "checkedIn" : false,
+    "report" : {
+        "symptoms" : "Shazaam!",
+        "comm" : {
+            "email" : true
+        }
+    },
+    "_id" : ObjectId("51dc1ef322ef18d259000004")
+}
+
+/* 1 */
+{
+    "officeId" : 31,
+    "officeName" : "Dr. Wallace",
+    "appt" : "3:30PM",
+    "userId" : "1243asdadassaadzscdfi4k34u39iu",
+    "userName" : "SWAL",
+    "checkedIn" : false,
+    "report" : {
+        "symptoms" : "My foot is broke.",
+        "comm" : {
+            "email" : true
+        }
+    },
+    "_id" : ObjectId("51dc1f3c22ef18d259000005")
+}
+
+/* 2 */
+{
+    "officeId" : 31,
+    "officeName" : "Dr. Wallace",
+    "appt" : "3:30PM",
+    "userId" : "12434mjsdasdavmbk4k34u39iu",
+    "userName" : "TORG",
+    "checkedIn" : false,
+    "report" : {
+        "symptoms" : "My leg is busted!",
+        "comm" : {
+            "text" : true
+        }
+    },
+    "_id" : ObjectId("51dc1f6a22ef18d259000006")
+}
+
+/* 3 */
+{
+    "officeId" : 31,
+    "officeName" : "Dr. Wallace",
+    "appt" : "1:30PM",
+    "userId" : "12434mkghdjfhkjdwi4k34u39iu",
+    "userName" : "SCOX",
+    "checkedIn" : false,
+    "report" : {
+        "symptoms" : "Arm fell off in my sleep. Imagine my surprise!",
+        "comm" : {
+            "text" : true
+        }
+    },
+    "_id" : ObjectId("51dc1faa22ef18d259000007")
+}

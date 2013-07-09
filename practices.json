@@ -1,0 +1,125 @@
+/* 0 */
+{
+    "_id" : ObjectId("51d0eaf5cbb2ec9589f40428"),
+    "name" : "Dr. Smith",
+    "practice" : "Atlanta ENT",
+    "type" : "ENT",
+    "address" : "123 Main Street",
+    "city" : "Atlanta",
+    "state" : "GA",
+    "officeId" : 1,
+    "availableTimes" : [ 
+        "10:30AM", 
+        "1:30PM", 
+        "2:45PM", 
+        "3:30PM"
+    ]
+}
+
+/* 1 */
+{
+    "_id" : ObjectId("51d0eb91cbb2ec9589f40429"),
+    "name" : "Dr. Who",
+    "practice" : "Atlanta OBGYN",
+    "type" : "OBGYN",
+    "address" : "123 Main Street",
+    "city" : "Atlanta",
+    "state" : "GA",
+    "officeId" : 30,
+    "availableTimes" : [ 
+        "10:30AM", 
+        "1:30PM", 
+        "2:45PM", 
+        "3:30PM"
+    ]
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("51d0eb91cbb2ec9589f4042a"),
+    "name" : "Dr. Wallace",
+    "practice" : "Fourth Ward Orthapeadics",
+    "type" : "Orthapeadics",
+    "address" : "123 Main Street",
+    "city" : "Atlanta",
+    "state" : "GA",
+    "officeId" : 31,
+    "availableTimes" : [ 
+        "10:30AM", 
+        "1:30PM", 
+        "2:45PM", 
+        "3:30PM"
+    ]
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("51d0eb91cbb2ec9589f4042c"),
+    "name" : "Dr. Foot",
+    "practice" : "We love feet",
+    "type" : "Podiatrist",
+    "address" : "123 Main Street",
+    "city" : "Atlanta",
+    "state" : "GA",
+    "officeId" : 33,
+    "availableTimes" : [ 
+        "10:30AM", 
+        "1:30PM", 
+        "2:45PM", 
+        "3:30PM"
+    ]
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("51d0eb91cbb2ec9589f4042d"),
+    "name" : "Dr. Bones",
+    "practice" : "Atlanta ENT",
+    "type" : "ENT",
+    "address" : "123 Main Street",
+    "city" : "Atlanta",
+    "state" : "GA",
+    "officeId" : 34,
+    "availableTimes" : [ 
+        "10:30AM", 
+        "1:30PM", 
+        "2:45PM", 
+        "3:30PM"
+    ]
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("51d0eb91cbb2ec9589f4042e"),
+    "name" : "Dr. Nose5",
+    "practice" : "Atlanta ENT",
+    "type" : "ENT",
+    "address" : "123 Main Street",
+    "city" : "Atlanta",
+    "state" : "GA",
+    "officeId" : 35,
+    "availableTimes" : [ 
+        "10:30AM", 
+        "1:30PM", 
+        "2:45PM", 
+        "3:30PM"
+    ]
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("51d0eb91cbb2ec9589f4042b"),
+    "name" : "Dr. Seyfi",
+    "practice" : "Dr. Hadi's Glaucoma Clinic",
+    "type" : "Psychatrist",
+    "address" : "123 Main Street",
+    "city" : "Atlanta",
+    "state" : "GA",
+    "officeId" : 32,
+    "availableTimes" : [ 
+        "10:30AM", 
+        "1:30PM", 
+        "2:45PM", 
+        "3:30PM"
+    ]
+}

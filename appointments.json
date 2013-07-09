@@ -1,5 +1,4 @@
-/* 0 */
-{
+[{
     "officeId" : 31,
     "officeName" : "Dr. Wallace",
     "appt" : "10:30AM",
@@ -11,11 +10,8 @@
         "comm" : {
             "email" : true
         }
-    },
-    "_id" : ObjectId("51dc1ef322ef18d259000004")
-}
-
-/* 1 */
+    }
+},
 {
     "officeId" : 31,
     "officeName" : "Dr. Wallace",
@@ -28,11 +24,8 @@
         "comm" : {
             "email" : true
         }
-    },
-    "_id" : ObjectId("51dc1f3c22ef18d259000005")
-}
-
-/* 2 */
+    }
+},
 {
     "officeId" : 31,
     "officeName" : "Dr. Wallace",
@@ -45,11 +38,8 @@
         "comm" : {
             "text" : true
         }
-    },
-    "_id" : ObjectId("51dc1f6a22ef18d259000006")
-}
-
-/* 3 */
+    }
+},
 {
     "officeId" : 31,
     "officeName" : "Dr. Wallace",
@@ -62,6 +52,5 @@
         "comm" : {
             "text" : true
         }
-    },
-    "_id" : ObjectId("51dc1faa22ef18d259000007")
-}
+    }
+}]

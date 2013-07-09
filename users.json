@@ -1,5 +1,5 @@
-/* 0 */
-{
+
+[{
     "_id" : ObjectId("51d743e44e7eecde4762cb9c"),
     "personal" : {
         "fname" : "Jon",
@@ -77,9 +77,8 @@
         "historyOfCancer" : 0,
         "surgeries" : []
     }
-}
+},
 
-/* 1 */
 {
     "_id" : ObjectId("51d823fc4e7eecde4762cb9d"),
     "personal" : {
@@ -157,9 +156,8 @@
         "historyOfCancer" : 0,
         "surgeries" : []
     }
-}
+},
 
-/* 2 */
 {
     "_id" : ObjectId("51dc15184e7eecde4762cb9f"),
     "personal" : {
@@ -238,9 +236,8 @@
         "historyOfCancer" : 0,
         "surgeries" : []
     }
-}
+},
 
-/* 3 */
 {
     "_id" : ObjectId("51dc15354e7eecde4762cba0"),
     "personal" : {
@@ -319,9 +316,8 @@
         "historyOfCancer" : 0,
         "surgeries" : []
     }
-}
+},
 
-/* 4 */
 {
     "_id" : ObjectId("51dc16b14e7eecde4762cba1"),
     "personal" : {
@@ -400,4 +396,4 @@
         "historyOfCancer" : 0,
         "surgeries" : []
     }
-}
+}]

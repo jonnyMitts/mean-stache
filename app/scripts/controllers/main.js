@@ -11,10 +11,10 @@ angular.module('bbContestApp')
         if (typeof user !== "undefined" && user.loggedIn)
             window.location = "/#/Main";
 
-        if(app.config.debug){
-            $scope.username = "jmittelbronn@sapient.com";
-            $scope.password = "m3l155412";
-        }
+        // if(app.config.debug){
+        //     $scope.username = "jmittelbronn@sapient.com";
+        //     $scope.password = "m3l155412";
+        // }
 
         $scope.loginSubmit = function (evt) {
             window.wSocket.emit("sendLogin", {

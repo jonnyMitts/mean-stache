@@ -4,16 +4,16 @@ var app = require('http').createServer(handler),
   mainSocket;
 
 var databaseUrl = "mongodb://127.0.0.1:27017/contest"; // "username:password@example.com/mydb"
-var collections = ["practice", "appointments","users"];
+var collections = ["practices", "appointments","users"];
 var mongojs = require("mongojs");
 var db = mongojs.connect(databaseUrl, collections);
 var ObjectId = mongojs.ObjectId;
 app.listen(3000);
 
 io.sockets.on('connection', function(socket) {
-  db.contest.find( function(err, practice) {
+  db.practices.find( function(err, practices) {
     socket.on("getOffices", function(data) {
-      socket.emit('offices', JSON.stringify(practice));
+      socket.emit('offices', JSON.stringify(practices));
     });
   });
 

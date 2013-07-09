@@ -4,7 +4,7 @@ var app = require('http').createServer(handler),
   mainSocket;
 
 var databaseUrl = "mongodb://127.0.0.1:27017/contest"; // "username:password@example.com/mydb"
-var collections = ["contest", "appointments","users"];
+var collections = ["practice", "appointments","users"];
 var mongojs = require("mongojs");
 var db = mongojs.connect(databaseUrl, collections);
 var ObjectId = mongojs.ObjectId;
@@ -33,7 +33,7 @@ io.sockets.on('connection', function(socket) {
 
 
   socket.on("getAppointments", function(data) {
-	var results = db.contest.find({officeId:parseInt(data.id)}, function(err, office){
+	var results = db.practices.find({officeId:parseInt(data.id)}, function(err, office){
 		socket.emit('appointments', JSON.stringify(office[0]));
 	})
   });

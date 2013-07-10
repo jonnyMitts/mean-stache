@@ -40,6 +40,10 @@ angular.module('bbContestApp', [])
         templateUrl:"views/admin.checkins.html",
         controller:'Admin_CheckinsCtrl'
       })
+      .when("/Admin/Checkins/:id/:userId", {
+        templateUrl:"views/admin.checkins.reports.html",
+        controller:'Admin_ReportsCtrl'
+      })
       // .otherwise({
       //   redirectTo: '/'
       // });

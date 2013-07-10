@@ -3,6 +3,7 @@
   <ul class="unstyled">
       <li ng-repeat="appointment in appointments">
       	<p>{{appointment.userName}} - {{appointment.appt}} {{{true:'- Checked In'}[appointment.checkedIn]}}</p>
+      	<a href="#/Admin/Checkins/{{appointment.officeId}}/{{appointment.userId}}">Report</a>
       </li>
   </ul>	
 </div>

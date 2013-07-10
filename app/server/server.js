@@ -29,21 +29,44 @@ io.sockets.on('connection', function(socket) {
   			socket.emit("checkinUpdated", JSON.stringify(data));
   	});
   });
-  	
 
 
   socket.on("getAppointments", function(data) {
-	var results = db.practices.find({officeId:parseInt(data.id)}, function(err, office){
-		socket.emit('appointments', JSON.stringify(office[0]));
-	})
+  	var results = db.practices.find({officeId:parseInt(data.id)}, function(err, office){
+  		socket.emit('appointments', JSON.stringify(office[0]));
+  	})
   });
+
+  socket.on("getReport", function(data) {
+    var results = db.appointments.find({userId: data.userId}, function(err, userAppointment){
+      socket.emit('report', JSON.stringify(userAppointment[0]));
+    })
+  });
+
+  socket.on("updateReportNotes", function( data ) {
+    console.log(data);
+    db.appointments.update(
+      {userId: data.id},
+      {
+          $push: { "report.additionalNotes" : {
+            notes: data.report,
+            time: data.time
+          }
+        }
+      }
+    )
+  });
+
   socket.on("sendLogin", function(user){
   	var obj = {
   		"personal.emailAddress":user.email,
   		"system.password":user.password
   	};
+    console.log(obj)
 
   	db.users.find(obj,function(err, data){
+      console.log("err :");
+      console.log(err);
   		socket.emit("loggedIn", data)
   	});
   })

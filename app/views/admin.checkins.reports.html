@@ -1,0 +1,17 @@
+<div class="hero-unit">
+	<h2>Report for {{appointment.userName}}</h2>
+
+	<h3>Reason for visit:</h3>
+	<p>{{appointment.report.symptoms}}</p>
+
+	<h3>Additional Notes</h3>
+	<ul>
+		<li ng-repeat="additionalNote in appointment.report.additionalNotes">
+          {{additionalNote.time}}<br />
+          {{additionalNote.notes}}
+        </li>
+	</ul>
+	<textarea placeholder="Add notes here" ng-model="report.additionalNotes">{{appointment.report.addNotes}}</textarea>
+
+	<button class="btn btn-primary btn-large" type="button" ng-click="submitUpdatedReport(report)">Update</button>
+</div>

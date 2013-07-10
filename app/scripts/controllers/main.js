@@ -11,10 +11,10 @@ angular.module('bbContestApp')
         if (typeof user !== "undefined" && user.loggedIn)
             window.location = "/#/Main";
 
-        // if(app.config.debug){
-        //     $scope.username = "jmittelbronn@sapient.com";
-        //     $scope.password = "m3l155412";
-        // }
+        if(app.config.debug){
+            $scope.username = "swallace@sapient.com";
+            $scope.password = "password";
+        }
 
         $scope.loginSubmit = function (evt) {
             window.wSocket.emit("sendLogin", {
@@ -73,6 +73,28 @@ angular.module('bbContestApp')
             $scope.office.selectedAppt = evt.appointment;
             $rootScope.$broadcast("openModal", $scope.office)
             $('#appointment-modal').modal('show')
+        }
+    })
+    .controller('Admin_ReportsCtrl', function ($scope, $routeParams, $rootScope) {
+        if (typeof user === "undefined" || !user.loggedIn) window.location = "/#/";
+
+        window.wSocket.emit("getReport", $routeParams);
+        window.wSocket.on("report", function (data) {
+            //$scope.additionNotes
+            $scope.appointment = (JSON.parse(data));
+            $scope.$apply();
+        });
+
+        $scope.submitUpdatedReport = function(report) {
+            var updatedData = {};
+
+            updatedData.id = $routeParams.userId;
+            updatedData.report = report.additionalNotes;
+            updatedData.time = new Date();
+            window.wSocket.emit("updateReportNotes", updatedData);
+
+            //console.log("report submitted",  report );
+            //console.log("report submitted",  updatedData );
         }
     })
     .controller('RecordsCtrl', function ($scope) {
@@ -158,6 +180,7 @@ angular.module('bbContestApp')
                 checkedIn: false,
                 report: report
             };
+
             window.wSocket.emit("saveYourAppointment", appt);
             window.wSocket.on("getYourAppointments", function (data) {
                 window.location = "#/Checkin/" + user.personal.userGuid.toString();

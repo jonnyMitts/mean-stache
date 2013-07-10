@@ -7,21 +7,23 @@ app.config = {
 
 angular.module('bbContestApp')
     .controller('LoginCtrl', function ($scope) {
-
+        //Checks if user is logged in, if so it redirects to the main jump screen
         if (typeof user !== "undefined" && user.loggedIn)
             window.location = "/#/Main";
 
-        // if(app.config.debug){
-        //     $scope.username = "jmittelbronn@sapient.com";
-        //     $scope.password = "m3l155412";
-        // }
+        if(app.config.debug){
+            // $scope.username = "jmittelbronn@sapient.com";
+            // $scope.password = "m3l155412";
+        }
 
+        //Login submit handler
         $scope.loginSubmit = function (evt) {
             window.wSocket.emit("sendLogin", {
                 email: $scope.username,
                 password: $scope.password
             });
         }
+        //Login listener
         window.wSocket.on("loggedIn", function (userObj) {
             if (userObj.length) {
                 user = userObj[0];
@@ -30,8 +32,11 @@ angular.module('bbContestApp')
             }
         });
     })
+    //This is the jump screen controller
     .controller('MainCtrl', function ($scope, $routeParams) {
+        //This tests to see if the user is logged in, redirects home if not
         if (typeof user === "undefined" || !user.loggedIn) window.location = "/#/";
+        
         $scope.navigation = [
             'Schedule',
             'Records',

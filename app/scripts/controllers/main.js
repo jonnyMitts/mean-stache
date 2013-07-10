@@ -97,11 +97,17 @@ angular.module('bbContestApp')
 
             updatedData.id = $routeParams.userId;
             updatedData.report = report.additionalNotes;
-            updatedData.time = new Date();
+            //updatedData.time = new Date();
             window.wSocket.emit("updateReportNotes", updatedData);
+            $scope.report.additionalNotes = '';
 
             //console.log("report submitted",  report );
             //console.log("report submitted",  updatedData );
+        };
+
+        $scope.getReadableDate = function( date ) {
+            var d = new Date( date );
+            return d.toUTCString();
         }
     })
     .controller('RecordsCtrl', function ($scope) {

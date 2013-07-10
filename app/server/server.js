@@ -44,17 +44,20 @@ io.sockets.on('connection', function(socket) {
   });
 
   socket.on("updateReportNotes", function( data ) {
-    console.log(data);
+    //console.log(data);
     db.appointments.update(
       {userId: data.id},
       {
           $push: { "report.additionalNotes" : {
             notes: data.report,
-            time: data.time
+            time: new Date()
           }
         }
       }
-    )
+    );
+    var results = db.appointments.find({userId: data.id}, function(err, userAppointment){
+      socket.emit('report', JSON.stringify(userAppointment[0]));
+    })
   });
 
   socket.on("sendLogin", function(user){

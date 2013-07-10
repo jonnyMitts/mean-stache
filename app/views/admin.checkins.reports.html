@@ -5,10 +5,11 @@
 	<p>{{appointment.report.symptoms}}</p>
 
 	<h3>Additional Notes</h3>
-	<ul>
+	<ul ng-controller="Admin_ReportsCtrl">
 		<li ng-repeat="additionalNote in appointment.report.additionalNotes">
-          {{additionalNote.time}}<br />
-          {{additionalNote.notes}}
+          {{additionalNote.notes}} -
+          {{getReadableDate(additionalNote.time)}}
+          <i ng-click="removeReportNote(report)" class="icon-remove-circle"></i>
         </li>
 	</ul>
 	<textarea placeholder="Add notes here" ng-model="report.additionalNotes">{{appointment.report.addNotes}}</textarea>

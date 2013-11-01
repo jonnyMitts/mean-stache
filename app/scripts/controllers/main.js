@@ -1,8 +1,8 @@
 'use strict';
-var user,app={};
+var user, app = {};
 
 app.config = {
-  debug:true
+    debug: true
 }
 
 angular.module('bbContestApp')
@@ -11,7 +11,7 @@ angular.module('bbContestApp')
         if (typeof user !== "undefined" && user.loggedIn)
             window.location = "/#/Main";
 
-        if(app.config.debug){
+        if (app.config.debug) {
             $scope.username = "swallace@sapient.com";
             $scope.password = "password";
             // $scope.username = "jmittelbronn@sapient.com";
@@ -34,30 +34,30 @@ angular.module('bbContestApp')
             }
         });
     })
-    //This is the jump screen controller
-    .controller('MainCtrl', function ($scope, $routeParams) {
-        //This tests to see if the user is logged in, redirects home if not
-        if (typeof user === "undefined" || !user.loggedIn) window.location = "/#/";
-        
-        $scope.navigation = [
-            'Schedule',
-            'Records',
-            'Checkin'
-        ];
-        $scope.goto = function (nav) {
-            if (nav === "Checkin") {
-                window.location = "/#/Checkin/" + user.personal.userGuid;
-            } else {
-                window.location = "/#/" + nav;
-            }
+//This is the jump screen controller
+.controller('MainCtrl', function ($scope, $routeParams) {
+    //This tests to see if the user is logged in, redirects home if not
+    if (typeof user === "undefined" || !user.loggedIn) window.location = "/#/";
+
+    $scope.navigation = [
+        'Schedule',
+        'Records',
+        'Checkin'
+    ];
+    $scope.goto = function (nav) {
+        if (nav === "Checkin") {
+            window.location = "/#/Checkin/" + user.personal.userGuid;
+        } else {
+            window.location = "/#/" + nav;
         }
-        // $scope.checkin = function() {
-        //   console.log($routePa)
-        //   socket.broadcast.emit('getAppointmentsByUserId', {
-        //     msg: "msg"
-        //   });
-        // }
-    })
+    }
+    // $scope.checkin = function() {
+    //   console.log($routePa)
+    //   socket.broadcast.emit('getAppointmentsByUserId', {
+    //     msg: "msg"
+    //   });
+    // }
+})
     .controller('ScheduleCtrl', function ($scope) {
         if (typeof user === "undefined" || !user.loggedIn) window.location = "/#/";
         $scope.offices = [];
@@ -92,7 +92,7 @@ angular.module('bbContestApp')
             $scope.$apply();
         });
 
-        $scope.submitUpdatedReport = function(report) {
+        $scope.submitUpdatedReport = function (report) {
             var updatedData = {};
 
             updatedData.id = $routeParams.userId;
@@ -155,7 +155,7 @@ angular.module('bbContestApp')
         }
     })
     .controller('CheckInCtrl', function ($scope) {
-       // if (typeof user === "undefined" || !user.loggedIn) window.location = "/#/";
+        // if (typeof user === "undefined" || !user.loggedIn) window.location = "/#/";
         $scope.appointments = [];
 
         window.wSocket.emit("getApptByGuid", {
@@ -165,14 +165,16 @@ angular.module('bbContestApp')
             $scope.appointments = data;
             $scope.$apply();
         });
-        $scope.checkin = function(evt){
-          window.wSocket.emit("updateCheckin",{apptId:evt.appointment._id});
-          window.wSocket.on("checkinUpdated",function(data){
-            window.wSocket.emit("getApptByGuid", {
-              user: user.personal.userGuid
+        $scope.checkin = function (evt) {
+            window.wSocket.emit("updateCheckin", {
+                apptId: evt.appointment._id
             });
-          });
-          
+            window.wSocket.on("checkinUpdated", function (data) {
+                window.wSocket.emit("getApptByGuid", {
+                    user: user.personal.userGuid
+                });
+            });
+
         }
     })
     .controller('MdlAppointment', function ($scope, $route) {
@@ -189,7 +191,7 @@ angular.module('bbContestApp')
                 officeName: $scope.office.name,
                 appt: $scope.office.selectedAppt,
                 userId: user.personal.userGuid,
-                userName: (user.personal.fname.slice(0,1) + user.personal.lname.slice(0,3)).toUpperCase(),
+                userName: (user.personal.fname.slice(0, 1) + user.personal.lname.slice(0, 3)).toUpperCase(),
                 checkedIn: false,
                 report: report
             };
@@ -202,15 +204,24 @@ angular.module('bbContestApp')
         }
     })
 //FrontDesk
-  .controller('Admin_CheckinsCtrl', function ($scope, $routeParams){
+.controller('Admin_CheckinsCtrl', function ($scope, $routeParams) {
     $scope.appointments = [];
-    window.wSocket.emit("getAppointmentsByOfficeId",$routeParams)
-    window.wSocket.on("appointmentsByOfficeId",function(data){
-      $scope.appointments = data;
-      console.log($scope.appointments);
-      $scope.$apply();
+    window.wSocket.emit("getAppointmentsByOfficeId", $routeParams)
+    window.wSocket.on("appointmentsByOfficeId", function (data) {
+        $scope.appointments = data;
+        console.log($scope.appointments);
+        $scope.$apply();
     })
-  })
+})
+.controller('Admin_SignInCtrl', function ($scope, $routeParams) {
+    $scope.appointments = [];
+    window.wSocket.emit("getAppointmentsByOfficeId", $routeParams)
+    window.wSocket.on("appointmentsByOfficeId", function (data) {
+        $scope.appointments = data;
+        console.log($scope.appointments);
+        $scope.$apply();
+    })
+})
 // .controller("YourAppointmentsCtrl", function($scope, $routeParams){
 //   console.log($routeParams);
 // });
